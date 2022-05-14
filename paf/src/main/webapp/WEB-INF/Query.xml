@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+	
+		<query id="insert_paymentdetails">
+        <![CDATA[
+			insert into payment( fullName, NIC, amount,  date, bankName, debitCard, otpNumber)
+			values (?, ?, ?, ?, ?, ?, ?)			
+        ]]>
+	</query>
+	
+	<query id="all_paymentdetails">
+         <![CDATA[        
+			select payID, fullName, NIC, amount,  date, bankName, debitCard, otpNumber
+			from payment
+        ]]>
+	</query>
+	
+	<query id="paymentdetails_by_id">
+         <![CDATA[
+         	select payID, fullName, NIC, amount,  date, bankName, debitCard, otpNumber 
+			from payment   
+			where payID = ?
+        ]]>
+	</query>
+	
+	<query id="remove_paymentdetails">
+         <![CDATA[        
+            delete from payment where payID = ?
+        ]]>
+	</query>
+	
+		<query id="update_paymentdetails">
+         <![CDATA[        
+			update payment as g 
+			set g.fullName = ?, g.NIC = ?, g.amount = ?,  g.date = ?, g.bankName = ?, g.debitCard = ?, g.otpNumber= ? 
+			where g.payID = ?
+        ]]>
+	</query>
+	
+</Querys>
